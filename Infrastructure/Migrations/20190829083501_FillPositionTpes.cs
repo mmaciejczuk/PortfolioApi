@@ -2,11 +2,11 @@
 
 namespace WebApplication.Infrastructure.Migrations
 {
-    public partial class Seed : Migration
+    public partial class FillPositionTpes : Migration
     {
+        //Fill PositionTypes        
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            // Fill PositionTypes
             migrationBuilder.Sql($"INSERT INTO PositionTypes (Name) VALUES ('Fund')");
             migrationBuilder.Sql($"INSERT INTO PositionTypes (Name) VALUES ('Share')");
             migrationBuilder.Sql($"INSERT INTO PositionTypes (Name) VALUES ('Bond')");

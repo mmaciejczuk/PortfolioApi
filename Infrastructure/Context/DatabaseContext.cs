@@ -28,10 +28,6 @@ namespace WebApplication.Infrastructure.Context
             modelBuilder.Entity<Portfolio>()
                 .Property(sample => sample.Currency)
                 .HasColumnType("char(3)");
-
-            modelBuilder.Entity<Portfolio>()
-                .Property(sample => sample.MarketValue)
-                .HasColumnType("decimal(16 ,2)");
         }
     }
 }

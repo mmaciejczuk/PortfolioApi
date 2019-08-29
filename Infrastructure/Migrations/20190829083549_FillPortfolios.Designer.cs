@@ -10,8 +10,8 @@ using WebApplication.Infrastructure.Context;
 namespace WebApplication.Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20190827161520_Initial")]
-    partial class Initial
+    [Migration("20190829083549_FillPortfolios")]
+    partial class FillPortfolios
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,9 +32,6 @@ namespace WebApplication.Infrastructure.Migrations
                     b.Property<string>("Currency")
                         .IsRequired()
                         .HasColumnType("char(3)");
-
-                    b.Property<decimal>("MarketValue")
-                        .HasColumnType("decimal(16 ,2)");
 
                     b.HasKey("ISINCode", "Date");
 
@@ -69,8 +66,6 @@ namespace WebApplication.Infrastructure.Migrations
 
                     b.Property<int?>("PositionTypeId");
 
-                    b.Property<double>("StorePercentage");
-
                     b.HasKey("Id");
 
                     b.HasIndex("PositionTypeId");
@@ -96,11 +91,11 @@ namespace WebApplication.Infrastructure.Migrations
 
             modelBuilder.Entity("WebApplication.Core.Domain.Position", b =>
                 {
-                    b.HasOne("WebApplication.Core.Domain.PositionType")
+                    b.HasOne("WebApplication.Core.Domain.PositionType", "PositionType")
                         .WithMany("Positions")
                         .HasForeignKey("PositionTypeId");
 
-                    b.HasOne("WebApplication.Core.Domain.Portfolio")
+                    b.HasOne("WebApplication.Core.Domain.Portfolio", "Portfolio")
                         .WithMany("Positions")
                         .HasForeignKey("PortfolioISINCode", "PortfolioDate");
                 });

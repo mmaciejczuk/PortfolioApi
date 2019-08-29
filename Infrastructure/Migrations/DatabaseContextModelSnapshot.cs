@@ -31,9 +31,6 @@ namespace WebApplication.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("char(3)");
 
-                    b.Property<decimal>("MarketValue")
-                        .HasColumnType("decimal(16 ,2)");
-
                     b.HasKey("ISINCode", "Date");
 
                     b.HasAlternateKey("Date", "ISINCode");
@@ -67,8 +64,6 @@ namespace WebApplication.Infrastructure.Migrations
 
                     b.Property<int?>("PositionTypeId");
 
-                    b.Property<double>("StorePercentage");
-
                     b.HasKey("Id");
 
                     b.HasIndex("PositionTypeId");
@@ -94,11 +89,11 @@ namespace WebApplication.Infrastructure.Migrations
 
             modelBuilder.Entity("WebApplication.Core.Domain.Position", b =>
                 {
-                    b.HasOne("WebApplication.Core.Domain.PositionType")
+                    b.HasOne("WebApplication.Core.Domain.PositionType", "PositionType")
                         .WithMany("Positions")
                         .HasForeignKey("PositionTypeId");
 
-                    b.HasOne("WebApplication.Core.Domain.Portfolio")
+                    b.HasOne("WebApplication.Core.Domain.Portfolio", "Portfolio")
                         .WithMany("Positions")
                         .HasForeignKey("PortfolioISINCode", "PortfolioDate");
                 });

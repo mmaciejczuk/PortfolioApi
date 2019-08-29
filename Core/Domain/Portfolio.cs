@@ -18,10 +18,7 @@ namespace WebApplication.Core.Domain
         [Required]
         [Column(TypeName = "char(3)")]
         public string Currency { get; private set; }
-        [Required]
-        [Column(TypeName = "decimal(16 ,2)")]
-        public decimal MarketValue { get; private set; }
-        public ICollection<Position> Positions { get; private set; }
+        public virtual ICollection<Position> Positions { get; private set; }
 
         public Portfolio()
         {
@@ -34,11 +31,11 @@ namespace WebApplication.Core.Domain
             Date = DateTime.UtcNow;
         }
 
-        public decimal GetMarketValuePercentage(int id, int tolerance)
-        {
-            var result = Positions.Where(x => x.Id == id).Select(x => x.MarketValue).FirstOrDefault() * 100
-                / this.MarketValue;
-            return Math.Round(result, tolerance);
-        }
+        //public decimal GetMarketValuePercentage(int id, int tolerance)
+        //{
+        //    var result = Positions.Where(x => x.Id == id).Select(x => x.MarketValue).FirstOrDefault() * 100
+        //        / this.MarketValue;
+        //    return Math.Round(result, tolerance);
+        //}
     }
 }

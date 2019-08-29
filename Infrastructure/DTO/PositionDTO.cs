@@ -10,6 +10,7 @@ namespace WebApplication.Infrastructure.DTO
         public string Currency { get; set; }
         public decimal MarketValue { get; set; }
         public string Name { get; set; }
+        public string Type { get; set; }
         public string Country { get; set; }
         public decimal StorePercentage { get; set; }
     }

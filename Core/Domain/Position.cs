@@ -19,8 +19,10 @@ namespace WebApplication.Core.Domain
         [Required]
         [Column(TypeName = "char(2)")]
         public string Country { get; private set; }
-        [Required]
-        public double StorePercentage { get; private set; }
+
+        public virtual Portfolio Portfolio { get; set; }
+        public virtual PositionType PositionType { get; set; }
+
 
         public Position()
         {

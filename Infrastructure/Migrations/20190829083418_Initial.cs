@@ -14,8 +14,7 @@ namespace WebApplication.Infrastructure.Migrations
                 {
                     ISINCode = table.Column<string>(maxLength: 12, nullable: false),
                     Date = table.Column<DateTime>(type: "date", nullable: false),
-                    Currency = table.Column<string>(type: "char(3)", nullable: false),
-                    MarketValue = table.Column<decimal>(type: "decimal(16 ,2)", nullable: false)
+                    Currency = table.Column<string>(type: "char(3)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,9 +45,8 @@ namespace WebApplication.Infrastructure.Migrations
                     MarketValue = table.Column<decimal>(type: "decimal(16 ,2)", nullable: false),
                     Name = table.Column<string>(nullable: false),
                     Country = table.Column<string>(type: "char(2)", nullable: false),
-                    StorePercentage = table.Column<double>(nullable: false),
-                    PortfolioDate = table.Column<DateTime>(nullable: true),
                     PortfolioISINCode = table.Column<string>(nullable: true),
+                    PortfolioDate = table.Column<DateTime>(nullable: true),
                     PositionTypeId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>

@@ -33,7 +33,7 @@ namespace WebApplication.Infrastructure.Services
                     ISINCode = b.ISINCode,
                     Date = b.Date,
                     Currency = b.Currency,
-                    MarketValue = b.MarketValue,
+                    MarketValue = b.Positions.Sum(r => r.MarketValue), 
                     Positions = b.Positions.Select(c => new PositionDTO
                                             {
                                                 Id = c.Id,
@@ -41,7 +41,10 @@ namespace WebApplication.Infrastructure.Services
                                                 MarketValue = c.MarketValue,
                                                 Name = c.Name,
                                                 Country = c.Country,
-                                                StorePercentage = c.MarketValue*100/b.MarketValue})
+                                                StorePercentage = (int)Math
+                                                    .Round(c.MarketValue*100/b.Positions
+                                                    .Sum(r => r.MarketValue), MidpointRounding.AwayFromZero)
+                    })
                                                 .OrderBy(c=>c.StorePercentage).ToList()
                 }).ToList());        
 
