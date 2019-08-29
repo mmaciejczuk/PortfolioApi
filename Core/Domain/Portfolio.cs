@@ -30,12 +30,5 @@ namespace WebApplication.Core.Domain
             ISINCode = isinCode;
             Date = DateTime.UtcNow;
         }
-
-        //public decimal GetMarketValuePercentage(int id, int tolerance)
-        //{
-        //    var result = Positions.Where(x => x.Id == id).Select(x => x.MarketValue).FirstOrDefault() * 100
-        //        / this.MarketValue;
-        //    return Math.Round(result, tolerance);
-        //}
     }
 }

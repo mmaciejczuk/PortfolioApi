@@ -10,6 +10,7 @@ namespace WebApplication.Infrastructure.Mappers
             => new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Portfolio, PortfolioDTO>();
+                cfg.CreateMap<Position, PositionDTO>();
             })
             .CreateMapper();
     }

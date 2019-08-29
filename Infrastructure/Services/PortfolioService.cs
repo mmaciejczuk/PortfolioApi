@@ -40,6 +40,7 @@ namespace WebApplication.Infrastructure.Services
                                                 Currency = c.Currency,
                                                 MarketValue = c.MarketValue,
                                                 Name = c.Name,
+                                                Type = c.PositionType.Name,
                                                 Country = c.Country,
                                                 StorePercentage = (int)Math
                                                     .Round(c.MarketValue*100/b.Positions
